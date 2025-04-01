@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Данные запроса{% endblock %}
+
+{% block content %}
+    {% if headers %}
+        <h2>Заголовки запроса:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Заголовок</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for header, value in headers.items() %}
+                    <tr>
+                        <td>{{ header }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if cookies %}
+        <h2>Cookies:</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name, value in cookies.items() %}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %} 
